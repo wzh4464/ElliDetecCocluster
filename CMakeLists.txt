@@ -14,11 +14,12 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../dist)
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 SET(CMAKE_BUILD_TYPE "Debug")
-include(CPack)
+
 include_directories(/Users/zihanwu/eigen/include/)
 include_directories(/opt/homebrew/include/)
 include_directories(/opt/homebrew/Cellar/opencv/4.5.5_1/include/opencv4/)
-
+include_directories(/Users/zihanwu/elli_lib/install/include)
+LINK_DIRECTORIES(/Users/zihanwu/elli_lib/install/lib)
 # print dir
 get_property(dirs DIRECTORY ${CMAKE_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
 message(">>> include_dirs=${dirs}")
@@ -42,6 +43,6 @@ message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
 add_executable(${PROJECT_NAME} main.cpp Find_arcs.hpp Find_arcs.cpp Debug.hpp Debug.cpp)
 add_compile_options(-Wwritable-strings)
 # Link your application with OpenCV libraries
-target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCV_LIBS} LAPACK)
+target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCV_LIBS} LAPACK ellipseCandidates)
 
 

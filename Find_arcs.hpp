@@ -44,7 +44,7 @@ class Arc_set {
     void append(Arc *);
     int size();
     std::vector <Arc *> * data;
-    void generateArcSet(cv::Mat &src); // generate all arcs
+    
     /**
      * @brief generate all arcs from source image
      * 1. Guass blur 
@@ -53,6 +53,7 @@ class Arc_set {
      * 4. get rotated gradient map
      * 
      */
+    void generateArcSet(cv::Mat &src); // generate all arcs
 };
 
 // class 

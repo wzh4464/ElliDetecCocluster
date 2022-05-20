@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2021-11-22 14:55:36
  * @Last Modified by:   WU Zihan
- * @Last Modified time: 2022-05-09 20:43:52
+ * @Last Modified time: 2022-05-20 11:06:52
  */
 #include "Find_arcs.hpp"
 
@@ -112,41 +112,6 @@ void Arc_set::generateArcSet(cv::Mat &src /*source file image*/)
     std::cout << "rotated_grad size:" <<rotated_grad.size << std::endl;
     std::cout << "channels[0] size:" <<channels[0].size << std::endl;
     std::cout << "channels[1] size:" <<channels[1].size << std::endl;
-    // gradient[0].size.p
-    /*
-	const char* window_1 = "1";
-    const char* window_2 = "2";
-    const char* window_3 = "3";
-    const char* trackx = "x";
-    const char* tracky = "y";
-    const char* tracka = "a";
-    const char* trackb = "b";
-    const char* trackth = "th";
-    x = 200;
-    y = 200;
-    a = 200;
-    b = 100;
-    th = 0;
-    
-    
-    namedWindow( window_1, WINDOW_AUTOSIZE );
-    createTrackbar (trackx,window_1,&x,gray.cols,
-					onChangeTrackBar);
-    createTrackbar (tracky,window_1,&y,gray.rows,
-					onChangeTrackBar);
-    createTrackbar (tracka,window_1,&a,gray.cols,
-					onChangeTrackBar);
-    createTrackbar (trackb,window_1,&b,gray.rows,
-					onChangeTrackBar);
-    createTrackbar (trackth,window_1,&th,360,
-					onChangeTrackBar);
-    onChangeTrackBar(0,0);
-    
-    while (cv::waitKey(0) != 'q')
-    {
 
-    }
-    return;
-    */
 
 }
