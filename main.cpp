@@ -2,7 +2,7 @@
  * @Author: WU Zihan
  * @Date:   2022-05-09 20:46:49
  * @Last Modified by:   WU Zihan
- * @Last Modified time: 2022-05-20 19:06:23
+ * @Last Modified time: 2022-05-24 11:32:50
  */
 
 // #include <stdio.h>
@@ -43,10 +43,14 @@ int main(int argc, char **argv)
     string filename;
     filename = parser.get<String>("@input");
     Mat src = imread("/Users/zihanwu/ellipseDetectionplus/666.jpg", IMREAD_GRAYSCALE);
-
+    // cout << src.rows << endl;
     Arc_set result(src);
+    for (int i = 0; i < result.data.size(); i++)
+    {
+        result.data[i].genMat();
+    }
     
-    
-    
+    // result.data[0].genMat();
+    // cout << result.data[0].mat.size << endl;
     return EXIT_SUCCESS;
 }

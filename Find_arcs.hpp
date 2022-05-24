@@ -5,28 +5,35 @@
 #include <opencv2/opencv.hpp>
 #include <string>
 #include "Debug.hpp"
-#include <generateEllipseCandidate.h>
+#include "generateEllipseCandidate.h"
 
 using namespace cv;
 // using namespace std;
 class Arc {
-    private:
+    // private:
+    public:
     // memeber
-    int flag; // other words, name
-    
+    int flag; // other words, name. If not assigned, flag == -1.
+    cv::Size2i sourceSize; // Size of source image.
+    cv::Mat mat;
     public:
     // member
     std::vector<cv::Point2i> points;
 
 
     // function
-    Arc (int);
-    int getFlag();
+    Arc (int); // construct with name
+    int getFlag() const noexcept;
     void setFlag(int);
-    int size();
+    cv::Size2i getSourceSize() const noexcept;
+    void setSourceSize(cv::Size2i &&);
     cv::Point2i & operator[](int i){
        return points[i];
     } // [] reference
+    // generate Matrix format
+    cv::Mat genMat() const noexcept;
+    // visualize the arc
+    void view();
 };
 
 class Arc_set {
@@ -50,7 +57,9 @@ class Arc_set {
      * 4. get rotated gradient map
      * 
      */
-    void generateArcSet(cv::Mat &src); // generate all arcs
+    void generateArcSet(const cv::Mat &src);
+
+    void arcGroupView(int n);
 };
 
 // class 
