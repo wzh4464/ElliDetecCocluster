@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2021-11-22 14:55:36
  * @Last Modified by:   WU Zihan
- * @Last Modified time: 2022-05-24 11:38:51
+ * @Last Modified time: 2022-05-24 12:27:50
  */
 #include "Find_arcs.hpp"
 
@@ -35,7 +35,7 @@ void Arc::setSourceSize(cv::Size2i && size)
 
  cv::Mat Arc::genMat() const noexcept
  {
-     cv::Mat val(sourceSize, CV_8UC1);
+     cv::Mat val(sourceSize, CV_8UC1, Scalar(0));
      for (int i = 0; i < points.size(); i++)
      {
          val.at<uchar>(points[i].x,points[i].y) = (uchar) 255;
@@ -66,6 +66,17 @@ void Arc_set::generateArcSet(const cv::Mat &src /*source file image*/)
 {
     ArcGen arcGenerater;
     auto output = arcGenerater.getGroups(src);
+    // ofstream dataset("data.txt");
+    // dataset << "outer size: " << output->arcpoints.size();
+    // for (int i = 0; i < output->arcpoints.size(); i++)
+    // {
+    //     append(Arc(i));
+    //     data[i].setSourceSize(Size2i(src.cols,src.rows));
+    //     data[i].points = output->arcpoints[i];
+    //     // dataset << data[i].points << endl;
+    // }
+    // dataset.close();
+    
     cout << "group size: " << output->group.size() << endl;
     // int n = 0;
     for (int i = 0; i < output->group.size(); i++)
