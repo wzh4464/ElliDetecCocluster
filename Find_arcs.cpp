@@ -2,13 +2,18 @@
  * @Author: Your name
  * @Date:   2021-11-22 14:55:36
  * @Last Modified by:   WU Zihan
- * @Last Modified time: 2022-05-24 12:27:50
+ * @Last Modified time: 2022-06-13 17:08:43
  */
 #include "Find_arcs.hpp"
 
 
 
 Arc::Arc(int _flag)
+{
+    this->flag = _flag;
+}
+
+Arc::Arc(int _flag, Out* elli_out, cv::Mat &src)
 {
     this->flag = _flag;
 }
@@ -76,26 +81,26 @@ void Arc_set::generateArcSet(const cv::Mat &src /*source file image*/)
     //     // dataset << data[i].points << endl;
     // }
     // dataset.close();
-    
-    cout << "group size: " << output->group.size() << endl;
+    int num;
+    cout << "group size: " <<  (num = output->arc_num) << endl;
     // int n = 0;
-    for (int i = 0; i < output->group.size(); i++)
-    {
-        // cout << i << ": " << endl;
-        append(Arc(i));
-        data[i].setSourceSize(Size2i(src.cols,src.rows));
-        for (int j = 0; j < output->group[i].size(); j++)
-        {
-            for (int k = 0; k < output->arcpoints[output->group[i][j]].size(); k++)
-            {
-                data[i].points.push_back(output->arcpoints[output->group[i][j]][k]);
-            }
+    // for (int i = 0; i < num; i++)
+    // {
+    //     // cout << i << ": " << endl;
+    //     append(Arc(i));
+    //     data[i].setSourceSize(Size2i(src.cols,src.rows));
+    //     for (int j = 0; j < output->group[i].size(); j++)
+    //     {
+    //         for (int k = 0; k < output->arcpoints[output->group[i][j]].size(); k++)
+    //         {
+    //             data[i].points.push_back(output->arcpoints[output->group[i][j]][k]);
+    //         }
             
-            // data[i].points.push_back(output->arcpoints[output->group[i][j]]);
-            // cout << output->arcpoints[output->group[i][j]] << endl;
-        }
-        // cout << endl;
-    }
+    //         // data[i].points.push_back(output->arcpoints[output->group[i][j]]);
+    //         // cout << output->arcpoints[output->group[i][j]] << endl;
+    //     }
+    //     // cout << endl;
+    // }
     // cout << "变了" << endl;
 }
 

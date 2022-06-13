@@ -5,9 +5,9 @@
 #include <opencv2/opencv.hpp>
 #include <string>
 #include "Debug.hpp"
-#include "generateEllipseCandidate.h"
+#include <arcgen.h>
 
-using namespace cv;
+// using namespace cv;
 // using namespace std;
 class Arc {
     // private:
@@ -16,6 +16,7 @@ class Arc {
     int flag; // other words, name. If not assigned, flag == -1.
     cv::Size2i sourceSize; // Size of source image.
     cv::Mat mat;
+    Ring ring;
     public:
     // member
     std::vector<cv::Point2i> points;
@@ -23,6 +24,7 @@ class Arc {
 
     // function
     Arc (int); // construct with name
+    Arc (int, Out*, cv::Mat&);
     int getFlag() const noexcept;
     void setFlag(int);
     cv::Size2i getSourceSize() const noexcept;
