@@ -40,7 +40,7 @@ message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
 # message(STATUS ${LDFLAGS})
 
 # Declare the executable target built from your sources
-add_executable(${PROJECT_NAME} main.cpp Find_arcs.hpp Find_arcs.cpp Debug.hpp Debug.cpp)
+add_executable(${PROJECT_NAME} main.cpp arc.cpp arc_set.cpp)
 add_compile_options(-Wwritable-strings)
 # Link your application with OpenCV libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCV_LIBS} LAPACK ellipseCandidates)

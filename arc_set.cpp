@@ -1,54 +1,11 @@
 /**
- * @Author: Your name
- * @Date:   2021-11-22 14:55:36
+ * @Author: WU Zihan
+ * @Date:   2022-05-24 15:52:19
  * @Last Modified by:   WU Zihan
- * @Last Modified time: 2022-05-24 15:31:55
+ * @Last Modified time: 2022-05-24 19:38:34
  */
-#include "Find_arcs.hpp"
+#include "arc_set.hpp"
 
-
-
-Arc::Arc(int _flag)
-{
-    this->flag = _flag;
-}
-
-int Arc::getFlag() const noexcept
-{
-    return flag;
-}
-
-void Arc::setFlag( int _flag )
-{
-    this->flag = _flag;
-}
-
-cv::Size2i Arc::getSourceSize() const noexcept
-{
-    return sourceSize;
-}
-
-void Arc::setSourceSize(cv::Size2i && size)
-{
-    sourceSize = size;
-}
-
- cv::Mat Arc::genMat() const noexcept
- {
-     cv::Mat val(sourceSize, CV_8UC1, Scalar(0));
-     for (int i = 0; i < points.size(); i++)
-     {
-         val.at<uchar>(points[i].x,points[i].y) = (uchar) 255;
-     }
-     cv::imwrite("pics/arc"+to_string(flag)+".jpg", val);
-    //  waitKey(0);
-     return val;
- }
-
-void Arc::view()
-{
-    
-}
 
 void Arc_set::append(Arc&& arc)
 {
@@ -62,7 +19,7 @@ int Arc_set::size()
 }
 
 
-void Arc_set::generateArcSet(const cv::Mat &src /*source file image*/)
+void Arc_set::generateArcSet()
 {
     ArcGen arcGenerater;
     auto output = arcGenerater.getGroups(src);
@@ -83,7 +40,7 @@ void Arc_set::generateArcSet(const cv::Mat &src /*source file image*/)
     {
         // cout << i << ": " << endl;
         append(Arc(i));
-        data[i].setSourceSize(Size2i(src.cols,src.rows));
+        data[i].setSourceSize(cv::Size2i(src.cols,src.rows));
         for (int j = 0; j < output->group[i].size(); j++)
         {
             for (int k = 0; k < output->arcpoints[output->group[i][j]].size(); k++)
@@ -99,7 +56,21 @@ void Arc_set::generateArcSet(const cv::Mat &src /*source file image*/)
     // cout << "变了" << endl;
 }
 
-void Arc_set::arcGroupView(int n)
+void Arc_set::viewAllArcs()
 {
-
+    cv::Mat val = src.clone();
+    for (int i = 0; i < size(); i++)
+    {
+        for (int j = 0; j < data[i].points.size(); j++)
+        {
+            val.at<uchar>(data[i].points[j]) = (uchar) 255;
+        }
+        
+    }
+    cv::imshow("all arc on src", val);
+    while (char x=waitKey() != 'q')
+    {
+        std::cout << x << std::endl;
+    }
+    
 }

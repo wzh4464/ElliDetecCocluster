@@ -42,3 +42,5 @@ CMakeFiles/**
 *.json
 cmake_output/**
 dist/**
+*.jpg
+*.txt
