@@ -15,7 +15,7 @@ class Arc {
     // memeber
     int flag; // other words, name. If not assigned, flag == -1.
     cv::Size2i sourceSize; // Size of source image.
-    cv::Mat mat;
+    // cv::Mat mat;
     Ring ring;
     public:
     // member
@@ -24,18 +24,18 @@ class Arc {
 
     // function
     Arc (int); // construct with name
-    Arc (int, Out*, cv::Mat&);
+    Arc (int, Out*, const cv::Mat&);
     int getFlag() const noexcept;
     void setFlag(int);
     cv::Size2i getSourceSize() const noexcept;
     void setSourceSize(cv::Size2i &&);
-    cv::Point2i & operator[](int i){
-       return points[i];
-    } // [] reference
-    // generate Matrix format
-    cv::Mat genMat() const noexcept;
-    // visualize the arc
-    void view();
+    // cv::Point2i & operator[](int i){
+    //    return points[i];
+    // } // [] reference
+    // // generate Matrix format
+    // cv::Mat genMat() const noexcept;
+    // // visualize the arc
+    // void view();
 };
 
 class Arc_set {
@@ -61,7 +61,7 @@ class Arc_set {
      */
     void generateArcSet(const cv::Mat &src);
 
-    void arcGroupView(int n);
+    // void arcGroupView(int n);
 };
 
 // class 

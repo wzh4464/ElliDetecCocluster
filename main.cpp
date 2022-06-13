@@ -2,7 +2,7 @@
  * @Author: WU Zihan
  * @Date:   2022-05-09 20:46:49
  * @Last Modified by:   WU Zihan
- * @Last Modified time: 2022-06-13 20:13:07
+ * @Last Modified time: 2022-06-13 20:18:57
  */
 
 // #include <stdio.h>
@@ -43,8 +43,8 @@ int main(int argc, char **argv)
     Mat src = imread("/home/wu/codes/dataset/hockey.jpg", IMREAD_GRAYSCALE);
 #endif
 
-    ArcGen a;
-    cout << a.getGroups(src) << endl;
+    // ArcGen a;
+    // cout << a.getGroups(src) << endl;
     // cout << src.rows << endl;
     // Arc_set result(src);
     // for (int i = 0; i < result.data.size(); i++)
