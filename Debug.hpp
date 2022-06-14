@@ -23,7 +23,7 @@ public:
     }
     template <typename T> void print(Mat &,int m=0,int n=5);
     void printshort(Mat & src,int m=0,int n=5);
-    std::fstream file;
+    static std::fstream file;
 };
 
 

@@ -1,10 +1,12 @@
 /**
- * @Author: Your name
+ * @Author: WU Zihan
  * @Date:   2021-11-22 14:55:36
  * @Last Modified by:   WU Zihan
- * @Last Modified time: 2022-06-14 09:23:14
+ * @Last Modified time: 2022-06-14 10:12:46
  */
 #include "Find_arcs.hpp"
+
+std::fstream Debug::file("../data/debug.log");
 
 Arc::Arc(int _flag)
 {
@@ -20,9 +22,13 @@ Arc::Arc(int _flag, Out *elli_out, const cv::Mat &src)
     setSourceSize(cv::Size2i(src.cols, src.rows));
 
     // debug
+#ifdef DEBUG
+    std::cout << ring.cx << '\t' << ring.cy << '\t' << ring.ax << '\t' << ring.bx << '\t' << ring.theta << std::endl;
+    Debug::file << ring.cx << '\t' << ring.cy << '\t' << ring.ax << '\t' << ring.bx << '\t' << ring.theta << std::endl; 
+#endif // DEBUG
 
     // calculate
-    
+
 }
 
 int Arc::getFlag() const noexcept

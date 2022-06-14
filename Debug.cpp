@@ -2,14 +2,14 @@
 //  * @Author: Your name
 //  * @Date:   2022-04-18 18:50:41
 //  * @Last Modified by:   WU Zihan
-//  * @Last Modified time: 2022-06-14 09:50:28
+//  * @Last Modified time: 2022-06-14 10:09:39
 //  */
 #include "Debug.hpp"
 
 Debug::Debug(/* args */)
 {
     // cout << "construct" << endl;
-    file.open("../data/debug.log",std::ios::out | std::ios::in);
+    // file.open("../data/debug.log");
 }
 
 Debug::~Debug()

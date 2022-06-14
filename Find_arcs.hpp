@@ -1,4 +1,7 @@
 #pragma once
+
+#include "header.h"
+
 #include <math.h>
 #include <vector>
 // #include <stdio.h>
@@ -7,7 +10,9 @@
 #include "Debug.hpp"
 #include <arcgen.h>
 // debug
+#ifdef DEBUG
 #include <fstream>
+#endif // DEBUG
 
 // using namespace cv;
 // using namespace std;
