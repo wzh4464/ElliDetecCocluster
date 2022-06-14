@@ -2,7 +2,7 @@
  * @Author: Your name
  * @Date:   2021-11-22 14:55:36
  * @Last Modified by:   WU Zihan
- * @Last Modified time: 2022-06-13 21:25:02
+ * @Last Modified time: 2022-06-14 09:23:14
  */
 #include "Find_arcs.hpp"
 
@@ -18,6 +18,8 @@ Arc::Arc(int _flag, Out *elli_out, const cv::Mat &src)
     this->ring = std::move(*elli_out->arc.end());
     elli_out->arc.pop_back();
     setSourceSize(cv::Size2i(src.cols, src.rows));
+
+    // debug
 
     // calculate
     

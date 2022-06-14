@@ -6,6 +6,8 @@
 #include <string>
 #include "Debug.hpp"
 #include <arcgen.h>
+// debug
+#include <fstream>
 
 // using namespace cv;
 // using namespace std;
@@ -20,6 +22,9 @@ class Arc {
     public:
     // member
     std::vector<cv::Point2i> points;
+
+    //debug
+    // std::ostream file;
 
 
     // function

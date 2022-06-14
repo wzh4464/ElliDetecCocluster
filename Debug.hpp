@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <opencv2/opencv.hpp>
+#include <fstream>
 
 // Single Object
 using namespace cv;
@@ -22,6 +23,7 @@ public:
     }
     template <typename T> void print(Mat &,int m=0,int n=5);
     void printshort(Mat & src,int m=0,int n=5);
+    std::fstream file;
 };
 
 
